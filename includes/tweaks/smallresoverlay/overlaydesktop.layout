@@ -1,5 +1,5 @@
-"resource/layout/overlaydesktop_lores.layout" {
-	styles {
+"resource/layout/overlaydesktop.layout" {
+	styles {		
 		sidemenu {}
 		
 		topbar {
@@ -23,7 +23,7 @@
 		
 		timeStrings {
 			textcolor=disabled_OnDarkBG
-			font-family=basefontfont
+			font-family=basefont
 			font-size=18
 			font-size=19 [$OSX]
 			font-weight=400
@@ -31,6 +31,11 @@
 	}
 	
 	layout {
+		place {
+			controls=GameGroupsButton,ChatRoomButton,DLCButton,GuideButton,LegacyCDKeyButton,WebSiteButton,RecommendButton,WorkshopButton,NewsDetailPanel
+			height=0
+		}
+
 		region {
 			name=overlay
 			align=top-center
@@ -44,43 +49,48 @@
 		region {
 			name=buttonsarea
 			region=overlay
-			y=124
+			y=144
 			width=560
 			height=max
+//			margin-bottom=240
 		}
 
 		region {
 			name=broadcastarea
 			region=overlay
-			align=right
-			width=645
+			align=top-center
+			y=100
+			width=420
 			height=max
 		}
-		
-		region {
-			name=taskbar
-			align=top-center
-			width=400
-			height=100
-		}
-		
+
 		place {
 			controls=BroadcastDetailPanel
 			region=broadcastarea
 			align=bottom
-			width=645
-			height=160
+			width=420
+			height=180
 		}
 		
 		place {
-			controls=GameHubButton,GameGroupsButton,ChatRoomButton,DLCButton,GuideButton,GuidesButton,LegacyCDKeyButton,WebSiteButton,ForumsButton,RecommendButton,WorkshopButton,FriendsButton,PlayersButton,AchievementsButton,ScreenshotsButton
-			region=buttonsarea
-			align=left
-			dir=down
-			y=50
-			spacing=8
+			control=CommunityHubDetailPanel,GuidesDetailPanel,CommunityDiscussionsDetailPanel,ScreenshotsDetailPanel
+			height=44
 		}
-		
+
+		place {
+			control=FriendsDetailPanel
+			height=117 // 44 + 44 + 29, This accounts for it being Friends + Players buttons, and the 29 spacing used for the other controls.
+		}
+
+		place {
+			control=CommunityHubDetailPanel,GuidesDetailPanel,CommunityDiscussionsDetailPanel,ScreenshotsDetailPanel,FriendsDetailPanel
+			region=buttonsarea
+			align=left-center
+			dir=down
+			width=max
+			spacing=29
+		}
+
 		place {
 			control=Clock,ClockSuffix
 			region=overlay
@@ -94,5 +104,14 @@
 			y=43
 			spacing=3
 		}
-	}	
+
+		place {
+			control=AchievementsDetailPanel
+			region=overlay
+			align=bottom
+			dir=down
+			width=max
+			height=161
+		}
+	}
 }

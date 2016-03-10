@@ -39,8 +39,9 @@
 		CheckButton {
 			textcolor=text_OnLightBG
 			font-family=basefont
-			font-size=15
+			font-size=16
 			font-size=16 [$OSX]
+			font-size=14 [$LINUX]
 			font-weight=400
 			inset-left=23
 
@@ -384,6 +385,7 @@
 
 		ComboBox {
 			textcolor=blue500
+			selectedtextcolor=blue500
 			font-family=mediumfont
 			font-size=16
 			font-size=17 [$OSX]
